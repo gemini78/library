@@ -26,10 +26,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bibliothèque</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <?php 
-        include '../pages/' . $page . '.php';
+        // navigation
+        include '../body/topbar.php';
+    ?>
+    <main>
+        <div class="wrapper">
+            <?php     
+                include '../pages/' . $page . '.php';
+            ?>
+        </div>
+    </main>
+    <?php 
+        // footer
+        include '../body/footer.php';
     ?>
 </body>
 </html>
