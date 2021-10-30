@@ -1,5 +1,6 @@
 <?php 
 
+/*
 if (!function_exists('not_empty')) 
 {
     function not_empty($fields = [])
@@ -14,6 +15,7 @@ if (!function_exists('not_empty'))
         }
     }
 }
+*/
 
 if (!function_exists('is_already_use')) 
 {
@@ -35,12 +37,13 @@ if (!function_exists('createBook'))
     {
         global $db;
 
-        $q = $db->prepare("INSERT INTO book (id, title,isbn,publish_at,writer_id) VALUES (null,?, ?,?,?)");
+        $q = $db->prepare("INSERT INTO book (title,isbn,publish_at,writer_id) VALUES (?,?,?,?)");
         $q->execute([$title,$isbn,$publish_at,$writer]);
     
     }
 }
 
+/*
 if (!function_exists('get_writers')) 
 {
     function get_writers() 
@@ -56,4 +59,6 @@ if (!function_exists('get_writers'))
     
     }
 }
+
+*/
 

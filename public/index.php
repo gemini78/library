@@ -4,6 +4,7 @@
 
     $pages= scandir('../pages/');
     if ( isset($_GET['page'])  && !empty($_GET['page']) ) {
+        
         if ( in_array($_GET['page'].'.php', $pages)) {
             $page = $_GET['page'];
         } else {
@@ -44,5 +45,6 @@
         // footer
         include '../body/footer.php';
     ?>
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <footer>
     <div class="wrapper">
-        footer
+        &copy; 2021
     </div>
 </footer>
