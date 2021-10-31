@@ -21,7 +21,10 @@
 
        } else {
             $errors[] = "Veuillez SVP remplir tous les champs !";
+            save_input_data();
        }
+    } else {
+        clear_input_data();
     }
 ?>
 <section class="section-add-book">
@@ -38,13 +41,13 @@
     </p>
     <form method="POST">
         <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title"><br>
+        <input type="text" id="title" name="title" value="<?= get_input_data('title');  ?>"><br>
 
         <label for="isbn">Isbn:</label><br>
-        <input type="text" id="isbn" name="isbn"><br>
+        <input type="text" id="isbn" name="isbn" value="<?= get_input_data('isbn');  ?>"><br>
 
         <label for="publish_at">Date de publication:</label><br>
-        <input type="date" id="publish_at" name="publish_at"><br>
+        <input type="date" id="publish_at" name="publish_at" value="<?= get_input_data('publish_at');  ?>"><br>
 
         <label for="writer">Ecrivain:</label><br>
         <select id="writer" name="writer">

@@ -1,4 +1,9 @@
 <?php
+    // session
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
     // connexion BDD
     include '../functions/main-functions.php';
 
