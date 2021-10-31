@@ -44,8 +44,10 @@
                       <td><?= $book->isbn ?></td>
                       <td><?= $book->publish_at ?></td>
                       <td><?= strtolower($book->firstname.' '.$book->lastname); ?></td>
-                      <td><a class='btn-modify' href="?page=update-book&id=<?= $id ?>">modifier</a></td>
-                      <td><a  class='btn-delete' data-id="<?= $id ?>" href="#" onclick="deleteElement(this)">supprimer</a></td>
+                      <td>
+                        <a class='btn-modify' href="?page=update-book&id=<?= $id ?>"><i class="fas fa-edit"></i></a>
+                        <a  class='btn-delete' data-id="<?= $id ?>" href="#" onclick="deleteElement(this)"><i class="fas fa-trash-alt"></i></a>
+                      </td>
                   </tr>
           <?php }
           ?>

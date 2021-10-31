@@ -190,7 +190,7 @@ input, select {
 .section-home table th, .section-home table td,
 .section-list-writer table th,
 .section-list-writer table td {
-  text-align: left;
+  text-align: center;
   padding: 8px;
 }
 .section-home table tr:nth-child(even),
