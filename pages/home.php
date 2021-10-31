@@ -1,11 +1,18 @@
 <?php 
-
-  $count = get_rowCountBook();
   
   if (isset($_GET['search'])) {
-    $books = get_books_all($_GET['search']);
+    $results = get_books_all($_GET['search']);
+    $books = $results['rows'];
   } else {
-    $books = get_books_all();
+    $results = get_books_all();
+    $books = $results['rows'];
+    $zonePagination = $results['pagination'];
+    $nbBookPage = $zonePagination['nbBookPage'];
+    $current = $zonePagination['current'];
+   /*
+    var_dump($nbBookPage,$current);
+    die;
+    */
   }
 ?>
 <section class="section-home">
@@ -44,4 +51,26 @@
           ?>
       </tbody>
   </table>
+
+  <?php 
+  if(isset($zonePagination)) { ?>
+    <ul class="pagination">
+      <li class="<?php if($current==1) { echo 'disabled'; }  ?>"><a href="?page=home&p=<?php if($current!=1) { echo ($current-1);} else { echo $current; }  ?>">&laquo;</a></li>
+
+      <?php
+        for ($i=1; $i <= $nbBookPage; $i++) { 
+          if($i== $current) { ?>
+            <li class="active"><a href="?page=home&p=<?= $i  ?>"><?= $i  ?></a></li>
+          <?php } else { ?>
+            <li ><a href="?page=home&p=<?= $i  ?>"><?= $i  ?></a></li>
+          <?php }
+        }
+      ?>
+      
+      <li class="<?php if($current==$nbBookPage) { echo 'disabled'; }  ?>"><a href="?page=home&p=<?php if($current!=$nbBookPage) { echo ($current+1);} else { echo $current; }  ?>">&raquo;</a></li>
+
+    </ul>
+  <?php 
+  }
+  ?>
 </section>
