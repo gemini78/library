@@ -43,8 +43,10 @@
                       <td><?= $book->publish_at ?></td>
                       <td><?= strtolower($book->firstname.' '.$book->lastname); ?></td>
                       <td>
-                        <a class='btn-modify' href="?page=update-book&id=<?= $id ?>"><i class="fas fa-edit"></i></a>
-                        <a  class='btn-delete' data-id="<?= $id ?>" href="#" onclick="deleteElement(this)"><i class="fas fa-trash-alt"></i></a>
+                        <div class="areaActions">
+                          <a class='btn-modify' href="?page=update-book&id=<?= $id ?>"><i class="fas fa-edit"></i></a>
+                          <a  class='btn-delete' data-id="<?= $id ?>" href="#" onclick="deleteElement(this)"><i class="fas fa-trash-alt"></i></a>
+                        </div>
                       </td>
                   </tr>
           <?php }
@@ -54,22 +56,24 @@
 
   <?php 
   if(isset($zonePagination)) { ?>
-    <ul class="pagination">
-      <li class="<?php if($current==1) { echo 'disabled'; }  ?>"><a href="?page=home&p=<?php if($current!=1) { echo ($current-1);} else { echo $current; }  ?>">&laquo;</a></li>
+    <div class="container_pagination">
+      <ul class="pagination">
+        <li class="<?php if($current==1) { echo 'disabled'; }  ?>"><a href="?page=home&p=<?php if($current!=1) { echo ($current-1);} else { echo $current; }  ?>">&laquo;</a></li>
 
-      <?php
-        for ($i=1; $i <= $nbBookPage; $i++) { 
-          if($i== $current) { ?>
-            <li class="active"><a href="?page=home&p=<?= $i  ?>"><?= $i  ?></a></li>
-          <?php } else { ?>
-            <li ><a href="?page=home&p=<?= $i  ?>"><?= $i  ?></a></li>
-          <?php }
-        }
-      ?>
-      
-      <li class="<?php if($current==$nbBookPage) { echo 'disabled'; }  ?>"><a href="?page=home&p=<?php if($current!=$nbBookPage) { echo ($current+1);} else { echo $current; }  ?>">&raquo;</a></li>
+        <?php
+          for ($i=1; $i <= $nbBookPage; $i++) { 
+            if($i== $current) { ?>
+              <li class="active"><a href="?page=home&p=<?= $i  ?>"><?= $i  ?></a></li>
+            <?php } else { ?>
+              <li ><a href="?page=home&p=<?= $i  ?>"><?= $i  ?></a></li>
+            <?php }
+          }
+        ?>
+        
+        <li class="<?php if($current==$nbBookPage) { echo 'disabled'; }  ?>"><a href="?page=home&p=<?php if($current!=$nbBookPage) { echo ($current+1);} else { echo $current; }  ?>">&raquo;</a></li>
 
-    </ul>
+      </ul>
+    </div>
   <?php 
   }
   ?>

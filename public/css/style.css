@@ -110,28 +110,33 @@ input, select {
 .section-home form input {
   margin-left: 2rem;
 }
-.section-home ul.pagination {
+.section-home .container_pagination {
+  margin: 1rem 0;
+}
+.section-home .container_pagination ul.pagination {
   display: flex;
   list-style-type: none;
   padding: 0;
   margin: 1rem 0 0 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.section-home ul.pagination li {
+.section-home .container_pagination ul.pagination li {
   margin-right: 1rem;
   padding: 0.8rem;
   border: 1px solid #3866FC;
   border-radius: 5px;
 }
-.section-home ul.pagination li a {
+.section-home .container_pagination ul.pagination li a {
   text-decoration: none;
   color: var(--soft-dark);
   font-size: 1rem;
 }
-.section-home ul.pagination li.active {
+.section-home .container_pagination ul.pagination li.active {
   color: var(--white-color);
   background-color: #3866FC;
 }
-.section-home ul.pagination li.disabled {
+.section-home .container_pagination ul.pagination li.disabled {
   cursor: not-allowed;
 }
 
@@ -197,6 +202,11 @@ input, select {
 .section-list-writer table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+.section-home table .areaActions,
+.section-list-writer table .areaActions {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 @media screen and (min-width: 800px) {
   nav ul {
@@ -205,5 +215,14 @@ input, select {
   }
   nav ul li {
     flex-grow: 1;
+  }
+
+  .section-home .container_pagination {
+    margin: 1rem 0;
+  }
+  .section-home .container_pagination ul.pagination {
+    display: flex;
+    margin: 1rem 0 0 0;
+    justify-content: start;
   }
 }
