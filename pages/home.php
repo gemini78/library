@@ -25,7 +25,6 @@
   <table>
       <thead>
           <tr>
-              <th>Id</th>
               <th>Title</th>
               <th>Isbn</th>
               <th>Publish_at</th>
@@ -39,7 +38,6 @@
               $id = $book->id;  
               ?>
                   <tr>
-                      <td><?= $id ?></td>
                       <td><?= $book->title ?></td>
                       <td><?= $book->isbn ?></td>
                       <td><?= $book->publish_at ?></td>
