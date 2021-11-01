@@ -25,10 +25,10 @@
   <table>
       <thead>
           <tr>
-              <th>Title</th>
+              <th>Titre</th>
               <th>Isbn</th>
-              <th>Publish_at</th>
-              <th>Writer</th>
+              <th>Publié le</th>
+              <th>Ecrivain</th>
               <th>Actions</th>
           </tr>
       </thead>

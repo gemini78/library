@@ -35,13 +35,13 @@
     </p>
 
     <form method="POST">
-        <label for="firstname">Firstname:</label><br>
+        <label for="firstname">Prénom:</label><br>
         <input type="text" id="firstname" name="firstname" value="<?= get_input_data('firstname');  ?>"><br>
 
-        <label for="lastname">Lastname:</label><br>
+        <label for="lastname">Nom:</label><br>
         <input type="text" id="lastname" name="lastname" value="<?= get_input_data('lastname');  ?>"><br>
 
-        <label for="birthday">Birthday:</label><br>
+        <label for="birthday">Date de naissance:</label><br>
         <input type="date" id="birthday" name="birthday" value="<?= get_input_data('birthday');  ?>"><br>
 
         <input type="submit" name="valider" value="VALIDER"/>

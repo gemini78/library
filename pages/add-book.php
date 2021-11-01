@@ -40,7 +40,7 @@
     ?>
     </p>
     <form method="POST">
-        <label for="title">Title:</label><br>
+        <label for="title">Titre:</label><br>
         <input type="text" id="title" name="title" value="<?= get_input_data('title');  ?>"><br>
 
         <label for="isbn">Isbn:</label><br>

@@ -7,10 +7,9 @@
   <table>
       <thead>
           <tr>
-              <th>Id</th>
-              <th>Firstname</th>
-              <th>Lastname</th>
-              <th>Birthday</th>
+              <th>Prénom</th>
+              <th>Nom</th>
+              <th>Date de naissance</th>
           </tr>
       </thead>
       <tbody>
@@ -19,7 +18,6 @@
               $id = $writer->id;  
               ?>
                   <tr>
-                      <td><?= $id ?></td>
                       <td><?= $writer->firstname ?></td>
                       <td><?= $writer->lastname ?></td>
                       <td><?= $writer->birthday ?></td>
