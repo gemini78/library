@@ -26,6 +26,7 @@
       <thead>
           <tr>
               <th>Titre</th>
+              <th>Couverture</th>
               <th>Isbn</th>
               <th>Publié le</th>
               <th>Ecrivain</th>
@@ -39,6 +40,7 @@
               ?>
                   <tr>
                       <td><?= $book->title ?></td>
+                      <td><img src="./images/noCover.jpg" alt="pas d'image"></td>
                       <td><?= $book->isbn ?></td>
                       <td><?= $book->publish_at ?></td>
                       <td><?= strtolower($book->firstname.' '.$book->lastname); ?></td>

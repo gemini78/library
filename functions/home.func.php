@@ -4,7 +4,7 @@ function get_books_all($search=null)
 {
     global $db;
 
-    $booksPerPage = 5;
+    $booksPerPage = 4;
     $totalBook = get_rowCountBook();
     $nbBookPage = ceil($totalBook/$booksPerPage);
     if(isset($_GET['p']) && !empty($_GET['p']) && ctype_digit($_GET['p'])==1) {

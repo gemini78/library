@@ -5,6 +5,7 @@
   --white-color: #FFF;
   --soft-dark: #5E5E5E;
   --padding: 15px;
+  --box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
 body {
@@ -21,6 +22,7 @@ body {
 h1 {
   text-align: center;
   text-transform: uppercase;
+  letter-spacing: 0.4rem;
 }
 
 header {
@@ -45,7 +47,7 @@ footer {
 
 .wrapper {
   width: 100%;
-  max-width: 1070px;
+  max-width: 1150px;
   margin: 0 auto;
 }
 
@@ -138,6 +140,9 @@ input, select {
   color: var(--white-color);
   background-color: #3866FC;
 }
+.section-home .container_pagination ul.pagination li.active a {
+  color: var(--white-color);
+}
 .section-home .container_pagination ul.pagination li.disabled {
   cursor: not-allowed;
 }
@@ -203,6 +208,14 @@ input, select {
 .section-home table tr:nth-child(even),
 .section-list-writer table tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+.section-home table img,
+.section-list-writer table img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid var(--light-grey);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
 }
 .section-home table .areaActions,
 .section-list-writer table .areaActions {
