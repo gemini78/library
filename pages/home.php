@@ -25,11 +25,10 @@
   <table>
       <thead>
           <tr>
+              <th>Pochette</th>
               <th>Titre</th>
-              <th>Couverture</th>
-              <th>Isbn</th>
-              <th>Publié le</th>
               <th>Ecrivain</th>
+              <th>Publié le</th>
               <th>Actions</th>
           </tr>
       </thead>
@@ -39,11 +38,10 @@
               $id = $book->id;  
               ?>
                   <tr>
-                      <td><?= $book->title ?></td>
                       <td><img src="./images/noCover.jpg" alt="pas d'image"></td>
-                      <td><?= $book->isbn ?></td>
-                      <td><?= $book->publish_at ?></td>
+                      <td><?= $book->title ?></td>
                       <td><?= strtolower($book->firstname.' '.$book->lastname); ?></td>
+                      <td><?= $book->publish_at ?></td>
                       <td>
                         <div class="areaActions">
                           <a class='btn-modify' href="?page=update-book&id=<?= $id ?>"><i class="fas fa-edit"></i></a>
