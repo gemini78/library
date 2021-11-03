@@ -114,4 +114,12 @@ if (!function_exists('clear_input_data'))
        }
     }
 }
-?>
+
+if (!function_exists('set_flash')) 
+{
+    function set_flash($message,$type='info')
+    {
+        $_SESSION['notification']['message'] = $message;
+        $_SESSION['notification']['type'] = $type;
+    }
+}

@@ -213,6 +213,34 @@ input, select {
 
 @import './partials/table';
 
+.alert {
+
+    h4 {
+        color: black;
+    }
+
+    opacity: 0.8;
+    border: 1px solid black;
+    padding: 15px;
+
+    &.alert-success {
+        background-color: green;
+    }
+    
+    &.alert-info {
+        background-color: blue;
+    }
+    
+    &.alert-warning {
+        background-color: #FFC126;
+    }
+    
+    &.alert-danger {
+        background-color: red;
+    }
+
+}
+
 @media screen and (min-width: 800px) {
     
     nav ul {

@@ -14,6 +14,8 @@
                 //MAJ en BDD
                 update_book($title,$isbn,$publish_at,$writer, $_GET['id']);
 
+                set_flash('Le livre a été mis à jour', 'success');
+
                 //Redirection vers home
                 header('Location: ?page=home');
             }
