@@ -39,26 +39,20 @@ if (!function_exists('createBook'))
 
         $q = $db->prepare("INSERT INTO book (title,isbn,publish_at,writer_id) VALUES (?,?,?,?)");
         $q->execute([$title,$isbn,$publish_at,$writer]);
-    
+        return $db->lastInsertId();
     }
 }
 
-/*
-if (!function_exists('get_writers')) 
+if (!function_exists('update_image_book')) 
 {
-    function get_writers() 
+    function update_image_book($path_image, $id)
     {
         global $db;
-
-        $req = $db->query("SELECT * FROM writer");
-        $result = [];
-        while($rows = $req->fetchObject()) {
-            $result[] = $rows;
-        }
-        return $result;
-    
+        
+        $req = $db->prepare("UPDATE book SET path_image = :path_image WHERE id = :id");
+        $req->bindParam(':path_image', $path_image, PDO::PARAM_STR);     
+        $req->bindParam(':id', $id, PDO::PARAM_INT);       
+        $req->execute();
     }
 }
-
-*/
 

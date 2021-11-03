@@ -6,14 +6,38 @@
             extract($_POST);
             $errors = [];
 
-
             if(is_already_use('isbn',$isbn, 'book')) {
                 $errors[] = 'ISBN déjà utilisé';
             }
+
+            if (isset($_FILES['path_image'])) {
+               $fichier = $_FILES['path_image']['name'];
+               $sizeMax = 2097152; // 2Go
+               $size = filesize($_FILES['path_image']['tmp_name']);
+               $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
+               $extension = strrchr($fichier, '.');
+
+               if(!in_array($extension, $extensions)) {
+                    $errors[] = 'Vous devez uploader des fichiers de type .png, .jpg, .jpeg, .gif';
+               }
+               if($size>$sizeMax) {
+                    $errors[] = 'Le fichier est trop volumineux';
+               }
+              
+            }
             
             if( count($errors) == 0) {
+                $id = null;
+                $id = createBook($title,$isbn,$publish_at,$writer);
+                
                 //enregistrement en BDD
-                createBook($title,$isbn,$publish_at,$writer);
+                if($id != null && isset($fichier)) {
+                    // replace no-allowed-car by -
+                    $fichier = preg_replace('/([^.a-z0-9]+)/i','-',$fichier);
+                    move_uploaded_file($_FILES['path_image']['tmp_name'],"images/id-$id-".$fichier);
+                    
+                    update_image_book("id-$id-".$fichier, $id);
+                }
 
                 //Redirection vers home
                 header('Location: ?page=home');
@@ -39,7 +63,7 @@
     }
     ?>
     </p>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         <label for="title">Titre:</label><br>
         <input type="text" id="title" name="title" value="<?= get_input_data('title');  ?>"><br>
 
@@ -57,6 +81,8 @@
             <?php  }
             ?>
         </select><br>
+        <label for="path_image">Pochette:</label><br>
+        <input type="file" name="path_image" id="path_image"><br>
         <input type="submit" name="valider" value="VALIDER"/>
     </form>
 </section>

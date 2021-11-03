@@ -38,7 +38,7 @@
               $id = $book->id;  
               ?>
                   <tr>
-                      <td><img src="./images/noCover.jpg" alt="pas d'image"></td>
+                      <td><img src="./images/<?=$book->path_image; ?>" alt="pas d'image"></td>
                       <td><?= $book->title ?></td>
                       <td><?= strtolower($book->firstname.' '.$book->lastname); ?></td>
                       <td><?= $book->publish_at ?></td>
