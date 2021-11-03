@@ -230,6 +230,7 @@ input, select {
 }
 .alert h4 {
   color: black;
+  text-transform: uppercase;
 }
 .alert.alert-success {
   background-color: green;
