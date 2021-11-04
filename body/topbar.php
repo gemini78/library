@@ -23,7 +23,7 @@
                         <li class="<?php echo ($page=="logout")? "active" : "" ?>"><a href="?page=logout">logout</a></li>
                 <?php }
                 ?>
-                <li class="<?php echo ($page=="test")? "active" : "" ?>"><a class="menuItemPseudo" href="#">Bonjour <?= ($auth)?$pseudo:'Donkey' ?></a></li>
+                <li><a class="menuItemPseudo" href="#">Hello <?= ($auth)?$pseudo:'Donkey' ?></a></li>
             </ul>
         </nav>
     </div>

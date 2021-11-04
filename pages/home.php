@@ -56,7 +56,7 @@ if (isset($_GET['search'])) {
           </td>
           <td><?= $book->title ?></td>
           <td><?= strtolower($book->firstname . ' ' . $book->lastname); ?></td>
-          <td><?= $book->price ?>€</td>
+          <td><?= number_format($book->price,2) ?>€</td>
           <?php
           if ($auth) { ?>
             <td>
