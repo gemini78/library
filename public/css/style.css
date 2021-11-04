@@ -2,6 +2,7 @@
 :root {
   --dark-orange: #E8351E;
   --light-grey: #FAF8F8;
+  --light-blue: #3866FC;
   --white-color: #FFF;
   --soft-dark: #5E5E5E;
   --padding: 15px;
@@ -113,6 +114,25 @@ input, select {
 }
 .section-home form input {
   margin-left: 2rem;
+}
+.section-home .containerImage {
+  position: relative;
+  height: 100px;
+}
+.section-home .containerImage img {
+  width: 100%;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-home .containerImage .cart {
+  position: absolute;
+  bottom: 0;
+  left: 103%;
+}
+.section-home .containerImage .cart i {
+  color: var(--soft-dark);
+  font-size: 1.8rem;
 }
 .section-home .container_pagination {
   margin: 1rem 0;
