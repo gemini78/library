@@ -1,4 +1,5 @@
 <?php 
+    include('../filters/auth_filter.php');
     $writers = get_writers();
 
     if (isset($_POST['valider'])) {

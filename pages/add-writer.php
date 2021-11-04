@@ -1,37 +1,38 @@
-<?php 
-  if (isset($_POST['valider'])) {
-    if( not_empty(['firstname','lastname','birthday']) ) {
+<?php
+include('../filters/auth_filter.php');
+
+if (isset($_POST['valider'])) {
+    if (not_empty(['firstname', 'lastname', 'birthday'])) {
         extract($_POST);
         $errors = [];
-        
-        if( count($errors) == 0) {
+
+        if (count($errors) == 0) {
             //enregistrement en BDD
-            createWriter($firstname,$lastname,$birthday);
+            createWriter($firstname, $lastname, $birthday);
 
             //Redirection vers home
             header('Location: ?page=home');
         }
-
-   } else {
+    } else {
         $errors[] = "Veuillez SVP remplir tous les champs !";
         save_input_data();
-   }
-}  else {
+    }
+} else {
     clear_input_data();
 }
-   
+
 ?>
 <section class="section-add-writer">
-  
+
     <h1>Ajouter un écrivain</h1>
     <p class="errors">
-    <?php 
-    if(isset($errors) && count($errors) != 0) {
-        foreach ($errors as $error) {
-            echo $error . '<br/>';
+        <?php
+        if (isset($errors) && count($errors) != 0) {
+            foreach ($errors as $error) {
+                echo $error . '<br/>';
+            }
         }
-    }
-    ?>
+        ?>
     </p>
 
     <form method="POST">
@@ -44,6 +45,6 @@
         <label for="birthday">Date de naissance:</label><br>
         <input type="date" id="birthday" name="birthday" value="<?= get_input_data('birthday');  ?>"><br>
 
-        <input type="submit" name="valider" value="VALIDER"/>
+        <input type="submit" name="valider" value="VALIDER" />
     </form>
 </section>

@@ -1,4 +1,6 @@
 <?php 
+    include('../filters/auth_filter.php');
+
     if ($_GET['id']!=0) {
         $book = get_book($_GET['id']);
     }
