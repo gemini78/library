@@ -1,5 +1,5 @@
 <footer>
     <div class="wrapper">
-        &copy; 2021
+        &copy; Stébou Mendy 2021
     </div>
 </footer>

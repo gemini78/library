@@ -6,7 +6,9 @@
                 <li class="<?php echo ($page=="add-book")? "active" : "" ?>"><a href="?page=add-book">add-book</a></li>
                 <li class="<?php echo ($page=="list-writer")? "active" : "" ?>"><a href="?page=list-writer">list-writer</a></li>
                 <li class="<?php echo ($page=="add-writer")? "active" : "" ?>"><a href="?page=add-writer">add-writer</a></li>
-                <li class="<?php echo ($page=="test")? "active" : "" ?>"><a href="?page=test">test</a></li>
+                <li class="<?php echo ($page=="login")? "active" : "" ?>"><a href="?page=login">login</a></li>
+                <li class="<?php echo ($page=="logout")? "active" : "" ?>"><a href="?page=logout">logout</a></li>
+                <li class="<?php echo ($page=="test")? "active" : "" ?>"><a href="?page=test">Bonjour Donkey</a></li>
             </ul>
         </nav>
     </div>
