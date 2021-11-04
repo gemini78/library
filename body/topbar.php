@@ -18,7 +18,11 @@
                 <?php   }
                 ?>
                 <li class="<?php echo ($page=="login")? "active" : "" ?>"><a href="?page=login">login</a></li>
-                <li class="<?php echo ($page=="logout")? "active" : "" ?>"><a href="?page=logout">logout</a></li>
+                <?php 
+                    if ($auth) { ?>
+                        <li class="<?php echo ($page=="logout")? "active" : "" ?>"><a href="?page=logout">logout</a></li>
+                <?php }
+                ?>
                 <li class="<?php echo ($page=="test")? "active" : "" ?>"><a class="menuItemPseudo" href="#">Bonjour <?= ($auth)?$pseudo:'Donkey' ?></a></li>
             </ul>
         </nav>
