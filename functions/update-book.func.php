@@ -18,16 +18,18 @@ if (!function_exists('get_book'))
 
 if (!function_exists('update_book')) 
 {
-    function update_book($title,$isbn,$publish_at,$writer_id, $id)
+    function update_book($title,$isbn,$publish_at,$writer_id,$price,$id)
     {
         global $db;
         
-        $req = $db->prepare("UPDATE book SET title = :title, isbn = :isbn, publish_at = :publish_at, writer_id = :writer_id WHERE id = :id");
+        $req = $db->prepare("UPDATE book SET title = :title, isbn = :isbn, publish_at = :publish_at, writer_id = :writer_id, price = :price WHERE id = :id");
         $req->bindParam(':title', $title, PDO::PARAM_STR);       
         $req->bindParam(':isbn', $isbn, PDO::PARAM_STR);       
         $req->bindParam(':publish_at', $publish_at, PDO::PARAM_STR);       
         $req->bindParam(':writer_id', $writer_id, PDO::PARAM_INT);       
-        $req->bindParam(':id', $id, PDO::PARAM_INT);       
+        $req->bindParam(':id', $id, PDO::PARAM_INT); 
+        $req->bindParam(':price', $price, PDO::PARAM_STR);       
+
         $req->execute();
     }
 }

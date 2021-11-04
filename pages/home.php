@@ -33,7 +33,7 @@
               <th>Pochette</th>
               <th>Titre</th>
               <th>Ecrivain</th>
-              <th>Publié le</th>
+              <th>Price</th>
               <?php 
                 if($auth) { ?>
                   <th>Actions</th>
@@ -50,7 +50,7 @@
                       <td><img src="./images/<?=$book->path_image; ?>" alt="pas d'image"></td>
                       <td><?= $book->title ?></td>
                       <td><?= strtolower($book->firstname.' '.$book->lastname); ?></td>
-                      <td><?= $book->publish_at ?></td>
+                      <td><?= $book->price ?></td>
                       <?php 
                         if($auth) { ?>
                           <td>

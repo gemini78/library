@@ -8,13 +8,13 @@
     $writers = get_writers();
     
     if (isset($_POST['valider'])) {
-        if( not_empty(['title','isbn','publish_at','writer']) ) {
+        if( not_empty(['title','isbn','publish_at','writer','price']) ) {
             extract($_POST);
             $errors = [];
 
             if( count($errors) == 0) {
                 //MAJ en BDD
-                update_book($title,$isbn,$publish_at,$writer, $_GET['id']);
+                update_book($title,$isbn,$publish_at,$writer,$price,$_GET['id']);
 
                 set_flash('Le livre a été mis à jour', 'success');
 
@@ -57,6 +57,10 @@
             <?php  }
             ?>
         </select><br>
+
+        <label for="price">Prix:</label><br>
+        <input type="number" id="price" name="price" step="0.01" value="<?= $book->price ?>">
+
         <input type="submit" name="valider" value="VALIDER"/>
     </form>
 </section>
