@@ -3,7 +3,7 @@
     $writers = get_writers();
 
     if (isset($_POST['valider'])) {
-        if( not_empty(['title','isbn','publish_at','writer']) ) {
+        if( not_empty(['title','isbn','publish_at','writer','price']) ) {
             extract($_POST);
             $errors = [];
 
@@ -29,7 +29,7 @@
             
             if( count($errors) == 0) {
                 $id = null;
-                $id = createBook($title,$isbn,$publish_at,$writer);
+                $id = createBook($title,$isbn,$publish_at,$writer,$price);
                 
                 //enregistrement en BDD
                 if($id != null && isset($fichier)) {
@@ -39,9 +39,11 @@
                     
                     update_image_book("id-$id-".$fichier, $id);
                 }
-
+                
+                set_flash('Le livre a été crée', 'success');
+                
                 //Redirection vers home
-                header('Location: ?page=home');
+                redirect('?page=home');
             }
 
        } else {
@@ -73,6 +75,9 @@
 
         <label for="publish_at">Date de publication:</label><br>
         <input type="date" id="publish_at" name="publish_at" value="<?= get_input_data('publish_at');  ?>"><br>
+
+        <label for="price">Prix:</label><br>
+        <input type="number" id="price" name="price" step="0.01" value="<?= get_input_data('price');  ?>">
 
         <label for="writer">Ecrivain:</label><br>
         <select id="writer" name="writer">

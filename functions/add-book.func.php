@@ -33,12 +33,12 @@ if (!function_exists('is_already_use'))
 
 if (!function_exists('createBook')) 
 {
-    function createBook($title,$isbn,$publish_at,$writer) 
+    function createBook($title,$isbn,$publish_at,$writer,$price) 
     {
         global $db;
 
-        $q = $db->prepare("INSERT INTO book (title,isbn,publish_at,writer_id) VALUES (?,?,?,?)");
-        $q->execute([$title,$isbn,$publish_at,$writer]);
+        $q = $db->prepare("INSERT INTO book (title,isbn,publish_at,writer_id,price) VALUES (?,?,?,?,?)");
+        $q->execute([$title,$isbn,$publish_at,$writer,$price]);
         return $db->lastInsertId();
     }
 }

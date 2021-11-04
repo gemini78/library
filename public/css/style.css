@@ -157,37 +157,6 @@ input, select {
   text-transform: uppercase;
 }
 
-.section-delete-book {
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-}
-.section-delete-book .content {
-  padding: 100px;
-  background: var(--white-color);
-  border-radius: 5px;
-  box-shadow: 4px 4px 8px var(--soft-dark);
-}
-.section-delete-book .content h1 {
-  font-size: 1.5rem;
-}
-.section-delete-book .content .btn-home {
-  border: 2px solid black;
-  background-color: var(--soft-dark);
-  border-radius: 5px;
-  color: var(--soft-dark);
-  padding: 4px;
-  margin: 6px;
-  text-decoration: none;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 200px;
-  text-align: center;
-  color: var(--white-color);
-}
-
 .menuItemPseudo {
   cursor: default;
   text-transform: none;
