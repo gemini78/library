@@ -18,11 +18,14 @@ try{
 
 if (!function_exists('e')) 
 {
-    function e($string)
+    function e($data)
     {
-        if ($string) {
-            return htmlspecialchars($string);
+        if ($data) {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
         }
+        return $data;
     }
 }
 
@@ -121,5 +124,34 @@ if (!function_exists('set_flash'))
     {
         $_SESSION['notification']['message'] = $message;
         $_SESSION['notification']['type'] = $type;
+    }
+}
+
+if (!function_exists('set_session_user')) 
+{
+    function set_session_user(string $pseudo)
+    {
+        $_SESSION['pseudo'] = $pseudo;
+    }
+}
+
+if (!function_exists('get_session_user')) 
+{
+    function get_session_user()
+    {
+        if(isset($_SESSION['pseudo'])) {
+            return $_SESSION['pseudo'];
+        }
+        return null;
+    }
+}
+
+
+if (!function_exists('redirect')) 
+{
+    function redirect(string $url)
+    {
+        header('Location: '.$url);
+        exit;
     }
 }

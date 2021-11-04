@@ -1,8 +1,6 @@
 <?php 
- 
+ $_SESSION['notification'] = [];
+ $_SESSION['pseudo'] = [];
+ set_flash("Déconnexion effectuée", 'success');
+ redirect("?page=login");
 ?>
-<section class="section-login">
-  
-  <h1>Logout</h1>
-  
-</section>

@@ -211,6 +211,11 @@ input, select {
     }
 }
 
+.menuItemPseudo {
+    cursor: default;
+    text-transform: none;
+}
+
 @import './partials/table';
 
 .alert {
@@ -218,6 +223,7 @@ input, select {
     h4 {
         color: black;
         text-transform: uppercase;
+        text-align: center;
     }
 
     opacity: 0.8;

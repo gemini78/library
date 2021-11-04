@@ -1,3 +1,10 @@
+<?php 
+    $pseudo = get_session_user();
+    $auth = false;
+    if (isset($pseudo) && !empty($pseudo) ) {
+        $auth = true;
+    }
+?>
 <header>
     <div class="wrapper">
         <nav>
@@ -8,7 +15,7 @@
                 <li class="<?php echo ($page=="add-writer")? "active" : "" ?>"><a href="?page=add-writer">add-writer</a></li>
                 <li class="<?php echo ($page=="login")? "active" : "" ?>"><a href="?page=login">login</a></li>
                 <li class="<?php echo ($page=="logout")? "active" : "" ?>"><a href="?page=logout">logout</a></li>
-                <li class="<?php echo ($page=="test")? "active" : "" ?>"><a href="?page=test">Bonjour Donkey</a></li>
+                <li class="<?php echo ($page=="test")? "active" : "" ?>"><a class="menuItemPseudo" href="#">Bonjour <?= ($auth)?$pseudo:'Donkey' ?></a></li>
             </ul>
         </nav>
     </div>

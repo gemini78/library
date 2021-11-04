@@ -188,6 +188,11 @@ input, select {
   color: var(--white-color);
 }
 
+.menuItemPseudo {
+  cursor: default;
+  text-transform: none;
+}
+
 .section-home,
 .section-list-writer {
   overflow-x: auto;
@@ -231,6 +236,7 @@ input, select {
 .alert h4 {
   color: black;
   text-transform: uppercase;
+  text-align: center;
 }
 .alert.alert-success {
   background-color: green;
