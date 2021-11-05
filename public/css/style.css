@@ -278,6 +278,12 @@ input, select {
   color: #009879;
 }
 
+.section-update-book__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (min-width: 800px) {
   nav ul {
     display: flex;
