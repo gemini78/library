@@ -7,6 +7,9 @@
     // connexion BDD
     include '../functions/main-functions.php';
 
+    // class Cart
+    include '../classes/Cart.php';
+
     $pages= scandir('../pages/');
     if ( isset($_GET['page'])  && !empty($_GET['page']) ) {
         

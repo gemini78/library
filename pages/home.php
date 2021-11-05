@@ -51,7 +51,7 @@ if (isset($_GET['search'])) {
             <div class="containerImage">
               <img src="./images/<?= $book->path_image; ?>" alt="Image du livre">
               
-              <span class="cart"><a href="#" title="Ajouter au panier"><i class="fas fa-2x fa-cart-plus"></i></a></span>
+              <span class="cart"><a href="?page=add-cart&id=<?= $id ?>" title="Ajouter au panier"><i class="fas fa-2x fa-cart-plus"></i></a></span>
             </div>
           </td>
           <td><?= $book->title ?></td>
