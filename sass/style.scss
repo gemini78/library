@@ -273,7 +273,8 @@ input, select {
         background-color: #f3f3f3;
     }
 
-    tbody tr:last-of-type {
+    /*tbody tr:last-of-type {*/
+    tfoot {
         border-bottom: 2px solid #009879;
     }
 

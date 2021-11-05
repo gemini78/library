@@ -27,6 +27,7 @@ if(isset($_GET['del'])) {
 //var_dump($_SESSION);
 $books = getBooksFromCart();
 
+$sum = $cart->total();
 ?>
 <section class="section-add-cart">
 
@@ -59,6 +60,13 @@ $books = getBooksFromCart();
 
             ?>
         </tbody>
+        <tfoot>
+            <td colspan="2">&nbsp;</td>
+            <td>sum</td>
+            <td><?= number_format($sum,2) ?> €</td>
+            <td><?= number_format($sum*1.196,2) ?> €</td>
+            <td>&nbsp;</td>
+        </tfoot>
     </table>
     <?php else: ?>
         <h1>Le panier est vide</h1>

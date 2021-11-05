@@ -155,3 +155,19 @@ if (!function_exists('redirect'))
         exit;
     }
 }
+
+if (!function_exists('getBooksFromCart')) 
+{
+    function getBooksFromCart() 
+    {
+        global $db;
+        
+        $ids = array_keys($_SESSION['cart']);
+        if(empty($ids)) {
+            return [];
+        }
+        $stmt = $db->prepare("SELECT * FROM book WHERE id IN ( ".implode(',',$ids)." )");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+}

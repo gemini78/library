@@ -22,4 +22,21 @@ class Cart
     {
         unset($_SESSION['cart'][$book_id]);
     }
+
+    public function total()
+    {
+        $sum = 0;
+        $ids = array_keys($_SESSION['cart']);
+        if(empty($ids)) {
+            $books = [];
+        } else {
+            $books = getBooksFromCart();
+        }
+
+        foreach ($books as $book_id => $book) {
+            $sum += $book->price;
+        }
+        
+        return $sum;
+    }
 }
