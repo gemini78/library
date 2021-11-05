@@ -23,6 +23,15 @@ class Cart
         unset($_SESSION['cart'][$book_id]);
     }
 
+    public function decQuantity($book_id)
+    {
+        if (isset($_SESSION['cart'][$book_id]) && !empty($_SESSION['cart'][$book_id])) {
+            if($_SESSION['cart'][$book_id]>1) {
+                $_SESSION['cart'][$book_id]--;
+            }   
+        }
+    }
+
     public function total()
     {
         $sum = 0;
