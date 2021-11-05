@@ -12,13 +12,38 @@ if (!$book) {
 $writers = get_writers();
 
 if (isset($_POST['valider'])) {
+   
     if (not_empty(['title', 'isbn', 'publish_at', 'writer', 'price'])) {
         extract($_POST);
         $errors = [];
+        
+        if (isset($_FILES['path_image']) && isset($_FILES['path_image']['name']) && mb_strlen($_FILES['path_image']['name'])) {
+            $fichier = $_FILES['path_image']['name'];
+            $sizeMax = 2097152; // 2Go
+            $size = filesize($_FILES['path_image']['tmp_name']);
+            $extensions = ['.png', '.jpg', '.jpeg', '.gif', '.PNG', '.JPG', '.JPEG', '.GIF'];
+            $extension = strrchr($fichier, '.');
+
+            if (!in_array($extension, $extensions)) {
+                $errors[] = 'Vous devez uploader des fichiers de type .png, .jpg, .jpeg, .gif';
+            }
+            if ($size > $sizeMax) {
+                $errors[] = 'Le fichier est trop volumineux';
+            }
+        }
 
         if (count($errors) == 0) {
-            //MAJ en BDD
+            //update BDD
             update_book($title, $isbn, $publish_at, $writer, $price, $_GET['id']);
+            
+            //store into BDD
+            if($book->id != null && isset($fichier)) {
+                // replace no-allowed-car by -
+                $fichier = preg_replace('/([^.a-z0-9]+)/i','-',$fichier);
+                move_uploaded_file($_FILES['path_image']['tmp_name'],"images/id-$book->id-".$fichier);
+                
+                update_image_book("id-$book->id-".$fichier,$book->id);
+            }
 
             set_flash('Le livre a été mis à jour', 'success');
 
@@ -44,7 +69,7 @@ if (isset($_POST['valider'])) {
         ?>
     </p>
     <div class="section-update-book__img"><img src="./images/<?= $book->path_image; ?>" width="200" height="250" alt="Image du livre"></div>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         <label for="title">Title:</label><br>
         <input type="text" id="title" name="title" value="<?= $book->title;  ?>"><br>
 
@@ -62,7 +87,7 @@ if (isset($_POST['valider'])) {
             <?php  }
             ?>
         </select><br>
-        
+
         <label for="path_image">Pochette:</label><br>
         <input type="file" name="path_image" id="path_image"><br>
 

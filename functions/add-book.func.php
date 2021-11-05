@@ -43,16 +43,5 @@ if (!function_exists('createBook'))
     }
 }
 
-if (!function_exists('update_image_book')) 
-{
-    function update_image_book($path_image, $id)
-    {
-        global $db;
-        
-        $req = $db->prepare("UPDATE book SET path_image = :path_image WHERE id = :id");
-        $req->bindParam(':path_image', $path_image, PDO::PARAM_STR);     
-        $req->bindParam(':id', $id, PDO::PARAM_INT);       
-        $req->execute();
-    }
-}
+
 

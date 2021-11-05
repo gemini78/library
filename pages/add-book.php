@@ -10,8 +10,7 @@
             if(is_already_use('isbn',$isbn, 'book')) {
                 $errors[] = 'ISBN déjà utilisé';
             }
-
-            if (isset($_FILES['path_image'])) {
+            if (isset($_FILES['path_image']) && isset($_FILES['path_image']['name']) && mb_strlen($_FILES['path_image']['name'])) {
                $fichier = $_FILES['path_image']['name'];
                $sizeMax = 2097152; // 2Go
                $size = filesize($_FILES['path_image']['tmp_name']);
