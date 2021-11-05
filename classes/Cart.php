@@ -33,10 +33,10 @@ class Cart
             $books = getBooksFromCart();
         }
 
-        foreach ($books as $book_id => $book) {
-            $sum += $book->price;
+        foreach ($books as $book) {
+            $sum += $book->price * $_SESSION['cart'][$book->id];
         }
-        
+
         return $sum;
     }
 }
