@@ -55,9 +55,14 @@ $sum = $cart->total();
                 <tr>
                     <td><img src="./images/<?= $book->path_image; ?>" width="200" height="200" alt="<?= $book->title ?>'image"></td>
                     <td><?= $book->title ?></td>
-                    <td><a href="?page=add-cart&dec=<?= $book->id ?>" class="cart_left"><i class="fas fa-minus"></i></a>
+                    <td> 
+                        <?php if($_SESSION['cart'][$book->id] > 1):  ?>
+                            <a href="?page=add-cart&dec=<?= $book->id ?>" class="cart_left"><i class="fas fa-minus"></i></a>
+                        <?php endif  ?>
+                       
                         <?= $_SESSION['cart'][$book->id] ?> 
-                        <a href="?page=add-cart&id=<?= $book->id ?>" class="cart_right"><i class="fas fa-plus"></i></a></td>
+                        <a href="?page=add-cart&id=<?= $book->id ?>" class="cart_right"><i class="fas fa-plus"></i></a>
+                    </td>
                     <td><?= number_format($book->price,2) ?> €</td>
                     <td><?= number_format($book->price*1.196,2) ?> €</td>
                     <td><a href="?page=add-cart&del=<?= $book->id ?>"><i class="fas fa-trash-alt fa-2x"></i></a></td>
