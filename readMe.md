@@ -32,4 +32,9 @@ sass --> les fichiers scss
 compile.bat et watch.bat --> script pour compiler et surveiller les changements
 
 le dossier Sql
-contient les differents script de création et insertion
+contient les differents script de création, insertion, modification, etc...
+
+Pour exporter une BDD en CLI
+mysqldump -u YourUser -p YourDatabaseName > wantedsqlfile.sql
+exemple
+mysqldump -u root -p library_db > sql/export/export-05-11-21.sql

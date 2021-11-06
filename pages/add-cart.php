@@ -1,5 +1,5 @@
 <?php
-$cart = new Cart;
+//$cart = new Cart;
 if(isset($_GET['del'])) {
     $cart->del($_GET['del']);
 } else{
@@ -63,8 +63,8 @@ $sum = $cart->total();
                         <?= $_SESSION['cart'][$book->id] ?> 
                         <a href="?page=add-cart&id=<?= $book->id ?>" class="cart_right"><i class="fas fa-plus"></i></a>
                     </td>
-                    <td><?= number_format($book->price,2) ?> €</td>
-                    <td><?= number_format($book->price*1.196,2) ?> €</td>
+                    <td><?= number_format($book->price,2, '.', ' ') ?> €</td>
+                    <td><?= number_format($book->price*1.196,2, '.', ' ') ?> €</td>
                     <td><a href="?page=add-cart&del=<?= $book->id ?>"><i class="fas fa-trash-alt fa-2x"></i></a></td>
                 </tr>
             <?php }
@@ -74,8 +74,8 @@ $sum = $cart->total();
         <tfoot>
             <td colspan="2">&nbsp;</td>
             <td>sum</td>
-            <td><?= number_format($sum,2) ?> €</td>
-            <td><?= number_format($sum*1.196,2) ?> €</td>
+            <td><?= number_format($sum,2, '.', ' ') ?> €</td>
+            <td><?= number_format($sum*1.196,2, '.', ' ') ?> €</td>
             <td>&nbsp;</td>
         </tfoot>
     </table>

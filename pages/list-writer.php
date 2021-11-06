@@ -4,7 +4,7 @@
 <section class="section-list-writer">
   
   <h1>Liste des écrivains</h1>
-  <table>
+  <table class="styled-table">
       <thead>
           <tr>
               <th>Prénom</th>
@@ -25,5 +25,8 @@
           <?php }
           ?>
       </tbody>
+      <tfoot>
+        <td colspan="3">&nbsp;</td>
+      </tfoot>
   </table>
 </section>

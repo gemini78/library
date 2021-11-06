@@ -9,7 +9,8 @@
 
     // class Cart
     include '../classes/Cart.php';
-
+    $cart = new Cart;
+    
     $pages= scandir('../pages/');
     if ( isset($_GET['page'])  && !empty($_GET['page']) ) {
         

@@ -14,10 +14,6 @@ if (isset($_GET['search'])) {
   $zonePagination = $results['pagination'];
   $nbBookPage = $zonePagination['nbBookPage'];
   $current = $zonePagination['current'];
-  /*
-    var_dump($nbBookPage,$current);
-    die;
-    */
 }
 ?>
 <section class="section-home">
@@ -27,7 +23,7 @@ if (isset($_GET['search'])) {
     <input type="submit" value="Recherche" style="width:auto">
   </form>
 
-  <table>
+  <table class="styled-table">
     <thead>
       <tr>
         <th>Pochette</th>
@@ -50,13 +46,13 @@ if (isset($_GET['search'])) {
           <td>
             <div class="containerImage">
               <img src="./images/<?= $book->path_image; ?>" alt="Image du livre">
-              
+
               <span class="cart"><a href="?page=add-cart&id=<?= $id ?>" title="Ajouter au panier"><i class="fas fa-2x fa-cart-plus"></i></a></span>
             </div>
           </td>
           <td><?= $book->title ?></td>
           <td><?= strtolower($book->firstname . ' ' . $book->lastname); ?></td>
-          <td><?= number_format($book->price,2) ?>€</td>
+          <td><?= number_format($book->price, 2, '.', ' ') ?> €</td>
           <?php
           if ($auth) { ?>
             <td>
@@ -72,6 +68,9 @@ if (isset($_GET['search'])) {
       <?php }
       ?>
     </tbody>
+    <tfoot>
+      <td colspan="4">&nbsp;</td>
+    </tfoot>
   </table>
 
   <?php
@@ -79,13 +78,13 @@ if (isset($_GET['search'])) {
     <div class="container_pagination">
       <ul class="pagination">
         <li class="<?php if ($current == 1) {
-                      echo 'disabled';
-                    }  ?>"><a href="?page=home&p=<?php if ($current != 1) {
-                                                                                            echo ($current - 1);
-                                                                                          } else {
-                                                                                            echo $current;
-                                                                                          }  ?>">&laquo;</a></li>
-
+            echo 'disabled';
+          }  ?>"><a href="?page=home&p=<?php if ($current != 1) {
+            echo ($current - 1);
+          } else {
+            echo $current;
+          }  ?>">&laquo;</a>
+        </li>
         <?php
         for ($i = 1; $i <= $nbBookPage; $i++) {
           if ($i == $current) { ?>
@@ -95,15 +94,14 @@ if (isset($_GET['search'])) {
         <?php }
         }
         ?>
-
         <li class="<?php if ($current == $nbBookPage) {
-                      echo 'disabled';
-                    }  ?>"><a href="?page=home&p=<?php if ($current != $nbBookPage) {
-                                                                                                      echo ($current + 1);
-                                                                                                    } else {
-                                                                                                      echo $current;
-                                                                                                    }  ?>">&raquo;</a></li>
-
+          echo 'disabled';
+        }  ?>"><a href="?page=home&p=<?php if ($current != $nbBookPage) {
+          echo ($current + 1);
+        } else {
+          echo $current;
+        }  ?>">&raquo;</a>
+        </li>
       </ul>
     </div>
   <?php
