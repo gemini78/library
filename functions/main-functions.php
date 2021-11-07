@@ -51,9 +51,9 @@ if (!function_exists('get_writers'))
     {
         global $db;
 
-        $req = $db->query("SELECT * FROM writer");
+        $stmt = $db->query("SELECT * FROM writer");
         $result = [];
-        while($rows = $req->fetchObject()) {
+        while($rows = $stmt->fetchObject()) {
             $result[] = $rows;
         }
         return $result;
@@ -67,9 +67,10 @@ if (!function_exists('get_book'))
     {
         global $db;
         
-        $req = $db->prepare("SELECT * FROM book WHERE id = ?");
-        $req->execute([$id]);
-        $result = $req->fetchObject();
+        $stmt = $db->prepare("SELECT * FROM book WHERE id = :id");
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);  
+        $stmt->execute();
+        $result = $stmt->fetchObject();
         return $result;
     }
 }
@@ -178,9 +179,9 @@ if (!function_exists('update_image_book'))
     {
         global $db;
         
-        $req = $db->prepare("UPDATE book SET path_image = :path_image WHERE id = :id");
-        $req->bindValue(':path_image', $path_image, PDO::PARAM_STR);     
-        $req->bindValue(':id', $id, PDO::PARAM_INT);       
-        $req->execute();
+        $stmt = $db->prepare("UPDATE book SET path_image = :path_image WHERE id = :id");
+        $stmt->bindValue(':path_image', $path_image, PDO::PARAM_STR);     
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);       
+        $stmt->execute();
     }
 }
