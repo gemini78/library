@@ -19,22 +19,18 @@ function get_books_all($search=null)
 
     $firstBookOfPage = ($current-1)*$booksPerPage;
 
-    /*
-    echo "nombre de pages: $totalBook<br> nombre de page: $nbBookPage<br> partie: $current<br> firstBookOfPage: $firstBookOfPage";
-    die;
-    */
     if ($search == null) {
-        $req = $db->query("SELECT book.*,writer.firstname ,writer.lastname FROM book JOIN writer ON book.writer_id = writer.id LIMIT $firstBookOfPage,$booksPerPage");
+        $stmt = $db->query("SELECT book.*,writer.firstname ,writer.lastname FROM book JOIN writer ON book.writer_id = writer.id LIMIT $firstBookOfPage,$booksPerPage");
     } else {
         $search = str_replace("'", "\'", $search);
         addslashes($search);
         $sql = "SELECT book.*,writer.firstname ,writer.lastname FROM book JOIN writer ON book.writer_id = writer.id WHERE title LIKE '%".$search."%'";
       
-        $req = $db->query($sql);
+        $stmt = $db->query($sql);
     }
-    $req->setFetchMode(PDO::FETCH_OBJ); 
+    $stmt->setFetchMode(PDO::FETCH_OBJ); 
     $result['rows'] = [];
-    while($rows = $req->fetchObject()) {
+    while($rows = $stmt->fetchObject()) {
         $result['rows'][] = $rows;
     }
     $result['pagination'] = [
