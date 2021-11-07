@@ -7,9 +7,20 @@ if (isset($_POST['valider'])) {
         extract($_POST);
         $errors = [];
 
+        $title = e($title);
+        $isbn = e($isbn);
+        $publish_at = e($publish_at);
+        $writer = e($writer);
+        $price = e($price);
+
         if (is_already_use('isbn', $isbn, 'book')) {
             $errors[] = 'ISBN déjà utilisé';
         }
+
+        if (!validatePrice($price)) {
+            $errors[] = "Le prix n'est pas valide.";
+        }
+
         if (isset($_FILES['path_image']) && isset($_FILES['path_image']['name']) && mb_strlen($_FILES['path_image']['name'])) {
             $fichier = $_FILES['path_image']['name'];
             $sizeMax = 2097152; // 2Go
@@ -28,20 +39,21 @@ if (isset($_POST['valider'])) {
         if (count($errors) == 0) {
             $id = null;
             $id = createBook($title, $isbn, $publish_at, $writer, $price);
-
             //enregistrement en BDD
             if ($id != null && isset($fichier)) {
+              
                 // replace no-allowed-car by -
                 $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
                 move_uploaded_file($_FILES['path_image']['tmp_name'], "images/id-$id-" . $fichier);
 
                 update_image_book("id-$id-" . $fichier, $id);
             }
-
             set_flash('Le livre a été crée', 'success');
 
             //Redirection vers home
             redirect('?page=home');
+        } else {
+            save_input_data();
         }
     } else {
         $errors[] = "Veuillez SVP remplir tous les champs !";

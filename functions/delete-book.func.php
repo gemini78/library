@@ -7,7 +7,7 @@ if (!function_exists('delete_book'))
         global $db;
         $sql = "DELETE FROM book WHERE id = :id";
         $stmt = $db->prepare($sql);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);   
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);   
         $stmt->execute();
         return true;
     }
