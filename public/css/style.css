@@ -168,7 +168,8 @@ input, select {
 
 .section-update-book .errors,
 .section-add-writer .errors,
-.section-add-book .errors {
+.section-add-book .errors,
+.section-login .errors {
   color: var(--dark-orange);
   margin-top: 1rem;
   margin-bottom: 1rem;

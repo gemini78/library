@@ -190,7 +190,8 @@ input, select {
 
 .section-update-book,
 .section-add-writer,
-.section-add-book {
+.section-add-book ,
+.section-login {
     .errors {
         color: var(--dark-orange);
         margin-top: 1rem;
