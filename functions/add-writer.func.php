@@ -5,8 +5,12 @@ if (!function_exists('createWriter'))
     {
         global $db;
 
-        $q = $db->prepare("INSERT INTO writer (id, firstname,lastname,birthday) VALUES (null,?,?,?)");
-        $q->execute([$firstname,$lastname,$birthday]);
+        $stmt = $db->prepare("INSERT INTO writer (firstname,lastname,birthday) VALUES (:firstname,:lastname,:birthday)");
+        $stmt->bindValue(':firstname', $firstname, PDO::PARAM_STR);
+        $stmt->bindValue(':lastname', $lastname, PDO::PARAM_STR);
+        $stmt->bindValue(':birthday', $birthday, PDO::PARAM_STR);
+        
+        $stmt->execute();
     
     }
 }

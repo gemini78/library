@@ -10,8 +10,10 @@ if (isset($_POST['valider'])) {
             //enregistrement en BDD
             createWriter($firstname, $lastname, $birthday);
 
-            //Redirection vers home
-            header('Location: ?page=home');
+            set_flash("L'écrivain a été crée", 'success');
+
+            //Redirection vers la liste des écrivains
+            redirect('?page=list-writer');
         }
     } else {
         $errors[] = "Veuillez SVP remplir tous les champs !";
