@@ -23,7 +23,6 @@ body {
 h1 {
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 0.4rem;
 }
 
 header {
@@ -50,6 +49,10 @@ footer {
   width: 100%;
   max-width: 950px;
   margin: 0 auto;
+}
+
+main .wrapper {
+  padding: 0 1rem;
 }
 
 nav ul {
@@ -195,6 +198,9 @@ input.button:nth-child(1) {
 .section-home .containerImage .cart i {
   color: var(--soft-dark);
   font-size: 1.8rem;
+}
+.section-home .areaActions a {
+  display: inline-block;
 }
 .section-home .container_pagination {
   margin: 1rem 0;

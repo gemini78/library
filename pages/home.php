@@ -17,7 +17,7 @@ if (isset($_GET['search'])) {
 }
 ?>
 <section class="section-home">
-  <h1>Liste des livres</h1>
+  <h1>Les livres</h1>
   <form method="get">
     <input type="text" name="search" id="search" style="width:auto">
     <input class="button" type="submit" value="Recherche" style="width:auto">
@@ -28,55 +28,57 @@ if (isset($_GET['search'])) {
     <a href="?page=add-writer" class="button">Ajouter un écrivain</a>
   </div>
 
-  <table class="styled-table">
-    <thead>
-      <tr>
-        <th>Pochette</th>
-        <th>Titre</th>
-        <th>Ecrivain</th>
-        <th>Price</th>
-        <?php
-        if ($auth) { ?>
-          <th>Actions</th>
-        <?php  }
-        ?>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-      foreach ($books as $book) {
-        $id = $book->id;
-      ?>
+  <div style="overflow-x:auto;">
+    <table class="styled-table">
+      <thead>
         <tr>
-          <td>
-            <div class="containerImage">
-              <img src="./images/<?= $book->path_image; ?>" alt="Image du livre">
-
-              <span class="cart"><a href="?page=add-cart&id=<?= $id ?>" title="Ajouter au panier"><i class="fas fa-2x fa-cart-plus"></i></a></span>
-            </div>
-          </td>
-          <td><?= $book->title ?></td>
-          <td><?= strtolower($book->firstname . ' ' . $book->lastname); ?></td>
-          <td><?= number_format($book->price, 2, '.', ' ') ?> €</td>
+          <th>Pochette</th>
+          <th>Titre</th>
+          <th>Ecrivain</th>
+          <th>Price</th>
           <?php
           if ($auth) { ?>
-            <td>
-              <div class="areaActions">
-                <a class='btn-modify' href="?page=update-book&id=<?= $id ?>"><i class="fas fa-edit"></i></a>
-                <a class='btn-delete' data-id="<?= $id ?>" href="#" onclick="deleteElement(this)"><i class="fas fa-trash-alt"></i></a>
-              </div>
-            </td>
+            <th>Actions</th>
           <?php  }
           ?>
-
         </tr>
-      <?php }
-      ?>
-    </tbody>
-    <tfoot>
-      <td colspan="4">&nbsp;</td>
-    </tfoot>
-  </table>
+      </thead>
+      <tbody>
+        <?php
+        foreach ($books as $book) {
+          $id = $book->id;
+        ?>
+          <tr>
+            <td>
+              <div class="containerImage">
+                <img src="./images/<?= $book->path_image; ?>" alt="Image du livre">
+  
+                <span class="cart"><a href="?page=add-cart&id=<?= $id ?>" title="Ajouter au panier"><i class="fas fa-2x fa-cart-plus"></i></a></span>
+              </div>
+            </td>
+            <td><?= $book->title ?></td>
+            <td><?= strtolower($book->firstname . ' ' . $book->lastname); ?></td>
+            <td><?= number_format($book->price, 2, '.', ' ') ?> €</td>
+            <?php
+            if ($auth) { ?>
+              <td>
+                <div class="areaActions">
+                  <a class='btn-modify' href="?page=update-book&id=<?= $id ?>"><i class="fas fa-edit"></i></a>
+                  <a class='btn-delete' data-id="<?= $id ?>" href="#" onclick="deleteElement(this)"><i class="fas fa-trash-alt"></i></a>
+                </div>
+              </td>
+            <?php  }
+            ?>
+  
+          </tr>
+        <?php }
+        ?>
+      </tbody>
+      <tfoot>
+        <td colspan="4">&nbsp;</td>
+      </tfoot>
+    </table>
+  </div>
 
   <?php
   if (isset($zonePagination)) { ?>

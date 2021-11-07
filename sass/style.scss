@@ -23,7 +23,6 @@ body {
 h1 {
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 0.4rem;
 }
 
 header {
@@ -50,8 +49,13 @@ footer {
     // border: 1px solid red;
     width: 100%;
     max-width: 950px;
-    margin: 0 auto;
+    margin: 0 auto;   
 }
+
+main .wrapper {
+    padding: 0 1rem;
+}
+
 
 nav {
 
@@ -229,6 +233,10 @@ input.button {
                 font-size: 1.8rem;
             }
         }
+    }
+
+    .areaActions a {
+        display: inline-block;
     }
 
     .container_pagination {
