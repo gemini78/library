@@ -94,6 +94,6 @@ if (isset($_POST['valider'])) {
         <label for="price">Prix:</label><br>
         <input type="number" id="price" name="price" step="0.01" value="<?= $book->price ?>">
 
-        <input type="submit" name="valider" value="VALIDER" />
+        <input class="button" type="submit" name="valider" value="VALIDER" />
     </form>
 </section>
