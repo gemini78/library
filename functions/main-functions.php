@@ -185,3 +185,14 @@ if (!function_exists('update_image_book'))
         $stmt->execute();
     }
 }
+
+if (!function_exists('deleteFileIfExiste')) 
+{
+    function deleteFileIfExiste($pathFile)
+    {
+        $arrayImages= scandir('images/');
+        if (in_array($pathFile, $arrayImages) && $pathFile != "noCover.jpg") {
+            unlink('images/' . $pathFile);
+        }
+    }
+}

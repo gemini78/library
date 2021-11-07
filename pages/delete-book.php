@@ -6,10 +6,14 @@ if ($_GET['id'] == null || $_GET['id'] == '') {
 }
 
 $id = $_GET['id'];
-
-if (delete_book($id)) {
-    set_flash('Le livre a été supprimé', 'success');
-
-    //Redirection vers home
-    header('Location: ?page=home');  
+$book = get_book($id);
+if ($book) {
+    $path_image = $book->path_image;
+    if (delete_book($id)) {
+        deleteFileIfExiste($path_image);
+        set_flash('Le livre a été supprimé', 'success');
+    
+        //Redirection vers home
+        header('Location: ?page=home');  
+    }
 }
