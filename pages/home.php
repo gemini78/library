@@ -20,8 +20,13 @@ if (isset($_GET['search'])) {
   <h1>Liste des livres</h1>
   <form method="get">
     <input type="text" name="search" id="search" style="width:auto">
-    <input type="submit" value="Recherche" style="width:auto">
+    <input class="button" type="submit" value="Recherche" style="width:auto">
   </form>
+
+  <div class="containerWriter">
+    <a href="?page=list-writer" class="button">Liste des écrivains</a>
+    <a href="?page=add-writer" class="button">Ajouter un écrivain</a>
+  </div>
 
   <table class="styled-table">
     <thead>
@@ -79,7 +84,7 @@ if (isset($_GET['search'])) {
       <ul class="pagination">
         <li class="<?php if ($current == 1) {
             echo 'disabled';
-          }  ?>"><a href="?page=home&p=<?php if ($current != 1) {
+          }  ?>"><a class="button" href="?page=home&p=<?php if ($current != 1) {
             echo ($current - 1);
           } else {
             echo $current;
@@ -88,15 +93,15 @@ if (isset($_GET['search'])) {
         <?php
         for ($i = 1; $i <= $nbBookPage; $i++) {
           if ($i == $current) { ?>
-            <li class="active"><a href="?page=home&p=<?= $i  ?>"><?= $i  ?></a></li>
+            <li class="button active"><a href="?page=home&p=<?= $i  ?>"><?= $i  ?></a></li>
           <?php } else { ?>
-            <li><a href="?page=home&p=<?= $i  ?>"><?= $i  ?></a></li>
+            <li><a class="button" href="?page=home&p=<?= $i  ?>"><?= $i  ?></a></li>
         <?php }
         }
         ?>
         <li class="<?php if ($current == $nbBookPage) {
           echo 'disabled';
-        }  ?>"><a href="?page=home&p=<?php if ($current != $nbBookPage) {
+        }  ?>"><a class="button" href="?page=home&p=<?php if ($current != $nbBookPage) {
           echo ($current + 1);
         } else {
           echo $current;

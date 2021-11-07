@@ -98,6 +98,6 @@ if (isset($_POST['valider'])) {
         </select><br>
         <label for="path_image">Pochette:</label><br>
         <input type="file" name="path_image" id="path_image"><br>
-        <input type="submit" name="valider" value="VALIDER" />
+        <input class="button" type="submit" name="valider" value="VALIDER" />
     </form>
 </section>

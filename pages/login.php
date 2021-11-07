@@ -44,7 +44,7 @@ if (isset($_POST['send'])) {
   <form method="post">
     <label for="pseudo">Pseudo</label>
     <input type="text" name="pseudo" id="pseudo" value="<?= get_input_data('pseudo');  ?>">
-    <input type="submit" name="send" value="Se connecter">
+    <input class="button" type="submit" name="send" value="Se connecter">
   </form>
 
 </section>

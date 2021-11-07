@@ -47,6 +47,6 @@ if (isset($_POST['valider'])) {
         <label for="birthday">Date de naissance:</label><br>
         <input type="date" id="birthday" name="birthday" value="<?= get_input_data('birthday');  ?>"><br>
 
-        <input type="submit" name="valider" value="VALIDER" />
+        <input class="button" type="submit" name="valider" value="VALIDER" />
     </form>
 </section>
