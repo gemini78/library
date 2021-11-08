@@ -25,7 +25,9 @@ if (isset($_GET['search'])) {
 
   <div class="containerWriter">
     <a href="?page=list-writer" class="button">Liste des écrivains</a>
-    <a href="?page=add-writer" class="button">Ajouter un écrivain</a>
+    <?php if($auth): ?>
+      <a href="?page=add-writer" class="button">Ajouter un écrivain</a>
+    <?php endif; ?>
   </div>
 
   <div style="overflow-x:auto;">
