@@ -76,9 +76,11 @@ if (isset($_GET['search'])) {
         <?php }
         ?>
       </tbody>
-      <tfoot>
-        <td colspan="4">&nbsp;</td>
-      </tfoot>
+      <!-- 
+        <tfoot>
+          <td colspan="4">&nbsp;</td>
+        </tfoot>
+      -->
     </table>
   </div>
 
