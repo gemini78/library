@@ -44,12 +44,14 @@ if (!function_exists('not_empty'))
     }
 }
 
+require_once '../classes/SinglePDO.php';
 
 if (!function_exists('get_writers')) 
 {
     function get_writers() 
     {
-        global $db;
+        //global $db;
+        $db = SinglePDO::getInstance();
 
         $stmt = $db->query("SELECT * FROM writer");
         $result = [];

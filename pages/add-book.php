@@ -44,6 +44,7 @@ if (isset($_POST['valider'])) {
               
                 // replace no-allowed-car by -
                 $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
+                deleteFileIfExiste("id-$id-" . $fichier);
                 move_uploaded_file($_FILES['path_image']['tmp_name'], "images/id-$id-" . $fichier);
 
                 update_image_book("id-$id-" . $fichier, $id);

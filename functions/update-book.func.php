@@ -1,26 +1,13 @@
 <?php 
 
-
-/*
-if (!function_exists('get_book')) 
-{
-    function get_book($id)
-    {
-        global $db;
-        
-        $req = $db->prepare("SELECT * FROM book WHERE id = ?");
-        $req->execute([$id]);
-        $result = $req->fetchObject();
-        return $result;
-    }
-}
-*/
+//require_once '../classes/SinglePDO.php';
 
 if (!function_exists('update_book')) 
 {
     function update_book($title,$isbn,$publish_at,$writer_id,$price,$id)
     {
-        global $db;
+        //global $db;
+        $db = SinglePDO::getInstance();
         
         $stmt = $db->prepare("UPDATE book SET title = :title, isbn = :isbn, publish_at = :publish_at, writer_id = :writer_id, price = :price WHERE id = :id");
         $stmt->bindValue(':title', $title, PDO::PARAM_STR);       

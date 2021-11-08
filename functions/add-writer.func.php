@@ -3,7 +3,8 @@ if (!function_exists('createWriter'))
 {
     function createWriter($firstname,$lastname,$birthday) 
     {
-        global $db;
+        //global $db;
+        $db = SinglePDO::getInstance();
 
         $stmt = $db->prepare("INSERT INTO writer (firstname,lastname,birthday) VALUES (:firstname,:lastname,:birthday)");
         $stmt->bindValue(':firstname', $firstname, PDO::PARAM_STR);

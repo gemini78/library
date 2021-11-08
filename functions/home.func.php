@@ -2,7 +2,8 @@
 
 function get_books_all($search=null)
 {
-    global $db;
+    //global $db;
+    $db = SinglePDO::getInstance();
 
     $booksPerPage = 4;
     $totalBook = get_rowCountBook();

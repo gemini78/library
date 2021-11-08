@@ -4,7 +4,8 @@ if (!function_exists('is_already_use'))
 {
     function is_already_use($field, $value, $table) 
     {
-        global $db;
+        //global $db;
+        $db = SinglePDO::getInstance();
 
         $stmt = $db->prepare("SELECT id FROM $table WHERE $field = :value");
         $stmt->bindValue(':value', $value, PDO::PARAM_STR);
@@ -19,8 +20,9 @@ if (!function_exists('createBook'))
 {
     function createBook($title,$isbn,$publish_at,$writer_id,$price) 
     {
-        global $db;
-
+        //global $db;
+        $db = SinglePDO::getInstance();
+        
         $stmt = $db->prepare("INSERT INTO book (title,isbn,publish_at,writer_id,price) VALUES (:title,:isbn,:publish_at,:writer_id,:price)");
         $stmt->bindValue(':title', $title, PDO::PARAM_STR);
         $stmt->bindValue(':isbn', $isbn, PDO::PARAM_STR);
