@@ -7,6 +7,11 @@ if ($_GET['id'] == null || $_GET['id'] == '') {
 
 $id = $_GET['id'];
 $book = get_book($id);
+
+if (!$book) {
+    set_flash('Livre inconnu', 'danger');
+    redirect('?page=error');
+}
 if ($book) {
     $path_image = $book->path_image;
     if (delete_book($id)) {
@@ -14,6 +19,6 @@ if ($book) {
         set_flash('Le livre a été supprimé', 'success');
     
         //Redirection vers home
-        header('Location: ?page=home');  
+        redirect('?page=home');
     }
 }
