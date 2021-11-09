@@ -337,6 +337,22 @@ input.button {
     align-items: center;    
 }
 
+.section-details-book {
+    
+    a {
+        margin-bottom: 1rem;
+    }
+
+    .container-details-one {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        img {
+            margin-right: 1rem;
+        }
+    }
+}
 
 .styled-table {
     border-collapse: collapse;

@@ -1,0 +1,1 @@
+SELECT B.id, B.title, B.publish_at, B.writer_id, B.path_image, B.price, W.firstname, W.lastname FROM book AS B JOIN writer AS W ON B.writer_id = W.id;

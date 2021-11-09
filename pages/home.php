@@ -58,7 +58,9 @@ if (isset($_GET['search'])) {
                 <span class="cart"><a href="?page=add-cart&id=<?= $id ?>" title="Ajouter au panier"><i class="fas fa-2x fa-cart-plus"></i></a></span>
               </div>
             </td>
-            <td><?= $book->title ?></td>
+            <td><a href="?page=details&id=<?= $id ?>">
+              <?= $book->title ?></td>
+            </a>
             <td><?= strtolower($book->firstname . ' ' . $book->lastname); ?></td>
             <td><?= number_format($book->price, 2, '.', ' ') ?> €</td>
             <?php

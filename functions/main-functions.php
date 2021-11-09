@@ -77,6 +77,22 @@ if (!function_exists('get_book'))
     }
 }
 
+
+if (!function_exists('get_book_all')) 
+{
+    function get_book_all($id)
+    {
+        //global $db;
+        $db = SinglePDO::getInstance();
+        
+        $stmt = $db->prepare("SELECT B.id, B.title, B.publish_at, B.writer_id, B.isbn, B.path_image, B.price, W.firstname, W.lastname FROM book AS B JOIN writer AS W ON B.writer_id = W.id WHERE B.id = :id" );
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);  
+        $stmt->execute();
+        $result = $stmt->fetchObject();
+        return $result;
+    }
+}
+
 if (!function_exists('get_rowCountBook')) 
 {
     function get_rowCountBook()
