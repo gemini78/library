@@ -4,6 +4,9 @@ $writers = get_writers();
 <section class="section-list-writer">
 
     <h1>Les écrivains</h1>
+
+    <a class="button" href="#" onclick="goBack()">Retour à l'accueil</a>
+
     <div style="overflow-x:auto;">
         <table class="styled-table">
             <thead>

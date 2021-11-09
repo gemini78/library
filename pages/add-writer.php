@@ -27,6 +27,9 @@ if (isset($_POST['valider'])) {
 <section class="section-add-writer">
 
     <h1>Ajouter un écrivain</h1>
+    
+    <a class="button" href="#" onclick="goBack()">Retour à l'accueil</a>
+
     <p class="errors">
         <?php
         if (isset($errors) && count($errors) != 0) {
