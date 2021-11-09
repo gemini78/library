@@ -59,7 +59,6 @@ if (!function_exists('get_writers'))
             $result[] = $rows;
         }
         return $result;
-    
     }
 }
 
@@ -67,7 +66,8 @@ if (!function_exists('get_book'))
 {
     function get_book($id)
     {
-        global $db;
+        //global $db;
+        $db = SinglePDO::getInstance();
         
         $stmt = $db->prepare("SELECT * FROM book WHERE id = :id");
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);  
@@ -81,7 +81,8 @@ if (!function_exists('get_rowCountBook'))
 {
     function get_rowCountBook()
     {
-        global $db;
+        //global $db;
+        $db = SinglePDO::getInstance();
         $count = $db->query("SELECT COUNT(id) FROM book")->fetch(PDO::FETCH_NUM)[0]; 
         return (int)$count;
     }
@@ -163,8 +164,8 @@ if (!function_exists('getBooksFromCart'))
 {
     function getBooksFromCart() 
     {
-        global $db;
-        
+        //global $db;
+        $db = SinglePDO::getInstance();
         $ids = array_keys($_SESSION['cart']);
         if(empty($ids)) {
             return [];
@@ -179,8 +180,9 @@ if (!function_exists('update_image_book'))
 {
     function update_image_book($path_image, $id)
     {
-        global $db;
-        
+        // global $db;
+        $db = SinglePDO::getInstance();
+                
         $stmt = $db->prepare("UPDATE book SET path_image = :path_image WHERE id = :id");
         $stmt->bindValue(':path_image', $path_image, PDO::PARAM_STR);     
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);       
