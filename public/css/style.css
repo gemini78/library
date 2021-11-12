@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap");
 :root {
-  --dark-orange: #E8351E;
-  --light-grey: #FAF8F8;
-  --light-blue: #5291C2;
-  --white-color: #FFF;
-  --soft-dark: #5E5E5E;
+  --dark-orange: #e8351e;
+  --light-grey: #faf8f8;
+  --light-blue: #5291c2;
+  --white-color: #fff;
+  --soft-dark: #5e5e5e;
   --padding: 15px;
-  --box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  --box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
 body {
@@ -75,7 +76,8 @@ nav a {
   text-align: center;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   margin-bottom: 1rem;
   height: 2rem;
@@ -198,6 +200,20 @@ input.button:nth-child(1) {
   color: var(--soft-dark);
   font-size: 1.8rem;
 }
+.section-home .title a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-style: italic;
+  text-transform: uppercase;
+  color: var(--soft-dark);
+  padding-bottom: 1.4rem;
+  border-bottom: 2px solid var(--light-blue);
+  transition-property: padding;
+  transition-duration: 0.8s;
+}
+.section-home .title:hover a {
+  padding-bottom: 0.3rem;
+}
 .section-home .areaActions a {
   display: inline-block;
 }
@@ -275,7 +291,7 @@ input.button:nth-child(1) {
   background-color: blue;
 }
 .alert.alert-warning {
-  background-color: #FFC126;
+  background-color: #ffc126;
 }
 .alert.alert-danger {
   background-color: red;
@@ -316,26 +332,13 @@ input.button:nth-child(1) {
   text-align: left;
   text-transform: uppercase;
 }
-.styled-table th, .styled-table td {
+.styled-table th,
+.styled-table td {
   padding: 12px 15px;
   text-align: center;
 }
 .styled-table tbody tr {
   border-bottom: 1px solid #dddddd;
-}
-.styled-table tbody tr .title {
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-style: italic;
-  text-transform: uppercase;
-  color: var(--soft-dark);
-  padding-bottom: 1.4rem;
-  border-bottom: 2px solid var(--light-blue);
-  transition-property: padding;
-  transition-duration: 0.8s;
-}
-.styled-table tbody tr .title:hover {
-  padding-bottom: 0.3rem;
 }
 .styled-table body tr:nth-of-type(even) {
   background-color: #f3f3f3;

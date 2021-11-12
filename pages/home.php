@@ -58,7 +58,7 @@ if (isset($_GET['search'])) {
                 <span class="cart"><a href="?page=add-cart&id=<?= $id ?>" title="Ajouter au panier"><i class="fas fa-2x fa-cart-plus"></i></a></span>
               </div>
             </td>
-            <td><a  class="title" title="Détail du livre" href="?page=details&id=<?= $id ?>">
+            <td class="title"><a title="Détail du livre" href="?page=details&id=<?= $id ?>">
               <?= $book->title ?></td>
             </a>
             <td><?= ucfirst($book->firstname) . ' ' . strtoupper($book->lastname); ?></td>
