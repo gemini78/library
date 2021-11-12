@@ -58,17 +58,17 @@ if (isset($_GET['search'])) {
                 <span class="cart"><a href="?page=add-cart&id=<?= $id ?>" title="Ajouter au panier"><i class="fas fa-2x fa-cart-plus"></i></a></span>
               </div>
             </td>
-            <td><a href="?page=details&id=<?= $id ?>">
+            <td><a  class="title" title="Détail du livre" href="?page=details&id=<?= $id ?>">
               <?= $book->title ?></td>
             </a>
-            <td><?= strtolower($book->firstname . ' ' . $book->lastname); ?></td>
+            <td><?= ucfirst($book->firstname) . ' ' . strtoupper($book->lastname); ?></td>
             <td><?= number_format($book->price, 2, '.', ' ') ?> €</td>
             <?php
             if ($auth) { ?>
               <td>
                 <div class="areaActions">
-                  <a class='btn-modify' href="?page=update-book&id=<?= $id ?>" title="Modifier ce livre"><i class="fas fa-edit"></i></a>
-                  <a class='btn-delete' data-id="<?= $id ?>" title="Supprimer ce livre" href="#" onclick="deleteElement(this)"><i class="fas fa-trash-alt"></i></a>
+                  <a class='btn-modify' title="Edition du livre" href="?page=update-book&id=<?= $id ?>" title="Modifier ce livre"><i class="fas fa-edit"></i></a>
+                  <a class='btn-delete' title="Suppression du livre" data-id="<?= $id ?>" title="Supprimer ce livre" href="#" onclick="deleteElement(this)"><i class="fas fa-trash-alt"></i></a>
                 </div>
               </td>
             <?php  }

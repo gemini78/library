@@ -48,7 +48,7 @@ footer {
 .wrapper {
     // border: 1px solid red;
     width: 100%;
-    max-width: 950px;
+    max-width: 990px;
     margin: 0 auto;   
 }
 
@@ -198,7 +198,7 @@ input.button {
         flex-wrap: wrap;
 
         input {
-            margin-left: 2rem;
+            margin-left: 1rem;
         }
     }
 
@@ -376,6 +376,7 @@ input.button {
        // background-color: #009879;
         color: #ffffff;
         text-align: left;
+        text-transform: uppercase;
     }
 
     th, td {
@@ -385,6 +386,21 @@ input.button {
 
     tbody tr {
         border-bottom: 1px solid #dddddd;
+
+        .title {
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-style: italic;
+            text-transform: uppercase;
+            color: var(--soft-dark);
+            padding-bottom: 1.4rem;
+            border-bottom: 2px solid var(--light-blue);
+            transition-property: padding;
+            transition-duration: .8s;
+            &:hover {
+                padding-bottom: 0.3rem;
+            }
+        }
     }
 
     body tr:nth-of-type(even) {

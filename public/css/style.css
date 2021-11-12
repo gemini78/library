@@ -47,7 +47,7 @@ footer {
 
 .wrapper {
   width: 100%;
-  max-width: 950px;
+  max-width: 990px;
   margin: 0 auto;
 }
 
@@ -169,7 +169,7 @@ input.button:nth-child(1) {
   flex-wrap: wrap;
 }
 .section-home form input {
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 .section-home .containerWriter {
   display: flex;
@@ -314,6 +314,7 @@ input.button:nth-child(1) {
   background-color: var(--light-blue);
   color: #ffffff;
   text-align: left;
+  text-transform: uppercase;
 }
 .styled-table th, .styled-table td {
   padding: 12px 15px;
@@ -321,6 +322,20 @@ input.button:nth-child(1) {
 }
 .styled-table tbody tr {
   border-bottom: 1px solid #dddddd;
+}
+.styled-table tbody tr .title {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-style: italic;
+  text-transform: uppercase;
+  color: var(--soft-dark);
+  padding-bottom: 1.4rem;
+  border-bottom: 2px solid var(--light-blue);
+  transition-property: padding;
+  transition-duration: 0.8s;
+}
+.styled-table tbody tr .title:hover {
+  padding-bottom: 0.3rem;
 }
 .styled-table body tr:nth-of-type(even) {
   background-color: #f3f3f3;
