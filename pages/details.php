@@ -17,7 +17,7 @@ if (!$book) {
 
     <div class="container-details-one">
         <div class="area-one">
-            <img src="./images/<?= $book->path_image; ?>" width="250" height="250" alt="Image du livre">
+            <img src="./images/<?= $book->path_image; ?>" alt="Image du livre">
         </div>
         <div class="area-two">
             <h2><?= $book->title ?></h2>
