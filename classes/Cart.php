@@ -45,7 +45,7 @@ class Cart
         foreach ($books as $book) {
             $sum += $book->price * $_SESSION['cart'][$book->id];
         }
-
+        
         return $sum;
     }
 }

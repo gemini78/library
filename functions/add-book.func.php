@@ -34,6 +34,26 @@ if (!function_exists('createBook'))
     }
 }
 
+if (!function_exists('createBookWithSynopsys')) 
+{
+    function createBookWithSynopsys($title,$isbn,$publish_at,$writer_id,$price,$synopsys) 
+    {
+        //global $db;
+        $db = SinglePDO::getInstance();
+        
+        $stmt = $db->prepare("INSERT INTO book (title,isbn,publish_at,writer_id,price,synopsys) VALUES (:title,:isbn,:publish_at,:writer_id,:price,:synopsys)");
+        $stmt->bindValue(':title', $title, PDO::PARAM_STR);
+        $stmt->bindValue(':isbn', $isbn, PDO::PARAM_STR);
+        $stmt->bindValue(':publish_at', $publish_at, PDO::PARAM_STR);
+        $stmt->bindValue(':writer_id', $writer_id, PDO::PARAM_INT);
+        $stmt->bindValue(':price', $price, PDO::PARAM_STR);
+        $stmt->bindValue(':synopsys', $synopsys, PDO::PARAM_STR);
+        $stmt->execute();
+        return $db->lastInsertId();
+    }
+}
+
+
 if (!function_exists('validatePrice')) 
 {
     function validatePrice($price) 

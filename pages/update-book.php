@@ -33,8 +33,11 @@ if (isset($_POST['valider'])) {
         }
 
         if (count($errors) == 0) {
-            //update BDD
-            update_book($title, $isbn, $publish_at, $writer, $price, $_GET['id']);
+            if (!empty($_POST['synopsys'])) {
+                updateBookWithSynopsys($title, $isbn, $publish_at, $writer, $price, $synopsys, $_GET['id']);
+            } else {
+                update_book($title, $isbn, $publish_at, $writer, $price, $_GET['id']);
+            }
             
             //store into BDD
             if($book->id != null && isset($fichier)) {
@@ -70,29 +73,32 @@ if (isset($_POST['valider'])) {
     </p>
     <div class="section-update-book__img"><img src="./images/<?= $book->path_image; ?>" width="200" height="250" alt="Image du livre"></div>
     <form method="POST" enctype="multipart/form-data">
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" value="<?= $book->title;  ?>"><br>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="<?= $book->title;  ?>">
 
-        <label for="isbn">Isbn:</label><br>
-        <input type="text" id="isbn" name="isbn" value="<?= $book->isbn ?>"><br>
+        <label for="isbn">Isbn:</label>
+        <input type="text" id="isbn" name="isbn" value="<?= $book->isbn ?>">
 
-        <label for="publish_at">Date de publication:</label><br>
-        <input type="date" id="publish_at" name="publish_at" value="<?= $book->publish_at ?>"><br>
+        <label for="publish_at">Date de publication:</label>
+        <input type="date" id="publish_at" name="publish_at" value="<?= $book->publish_at ?>">
 
-        <label for="writer">Ecrivain:</label><br>
+        <label for="writer">Ecrivain:</label>
         <select id="writer" name="writer">
             <?php
             foreach ($writers as $writer) { ?>
                 <option value="<?= $writer->id ?>" <?php if ($writer->id == $book->writer_id) echo 'selected'; ?>><?= strtolower($writer->firstname . ' ' . $writer->lastname); ?></option>
             <?php  }
             ?>
-        </select><br>
+        </select>
 
-        <label for="path_image">Pochette:</label><br>
-        <input type="file" name="path_image" id="path_image"><br>
+        <label for="path_image">Pochette:</label>
+        <input type="file" name="path_image" id="path_image">
 
-        <label for="price">Prix:</label><br>
+        <label for="price">Prix:</label>
         <input type="number" id="price" name="price" step="0.01" value="<?= $book->price ?>">
+
+        <label for="synopsys">Synopsys:</label>
+        <textarea name="synopsys" id="synopsys" cols="30" rows="10"><?= $book->synopsys ?></textarea>
 
         <input class="button" type="submit" name="valider" value="VALIDER" />
     </form>

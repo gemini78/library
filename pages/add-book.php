@@ -12,6 +12,9 @@ if (isset($_POST['valider'])) {
         $publish_at = e($publish_at);
         $writer = e($writer);
         $price = e($price);
+        if (!empty($_POST['synopsys'])) {
+            $synopsys = e($_POST['synopsys']);
+        }
 
         if (is_already_use('isbn', $isbn, 'book')) {
             $errors[] = 'ISBN déjà utilisé';
@@ -38,10 +41,13 @@ if (isset($_POST['valider'])) {
 
         if (count($errors) == 0) {
             $id = null;
-            $id = createBook($title, $isbn, $publish_at, $writer, $price);
+            if (!empty($_POST['synopsys'])) {
+                $id = createBookWithSynopsys($title, $isbn, $publish_at, $writer, $price, $synopsys);
+            } else {
+                $id = createBook($title, $isbn, $publish_at, $writer, $price);
+            }
             //enregistrement en BDD
             if ($id != null && isset($fichier)) {
-              
                 // replace no-allowed-car by -
                 $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
                 deleteFileIfExiste("id-$id-" . $fichier);
@@ -77,28 +83,32 @@ if (isset($_POST['valider'])) {
         ?>
     </p>
     <form method="POST" enctype="multipart/form-data">
-        <label for="title">Titre:</label><br>
-        <input type="text" id="title" name="title" value="<?= get_input_data('title');  ?>"><br>
+        <label for="title">Titre:</label>
+        <input type="text" id="title" name="title" value="<?= get_input_data('title');  ?>">
 
-        <label for="isbn">Isbn:</label><br>
-        <input type="text" id="isbn" name="isbn" value="<?= get_input_data('isbn');  ?>"><br>
+        <label for="isbn">Isbn:</label>
+        <input type="text" id="isbn" name="isbn" value="<?= get_input_data('isbn');  ?>">
 
-        <label for="publish_at">Date de publication:</label><br>
-        <input type="date" id="publish_at" name="publish_at" value="<?= get_input_data('publish_at');  ?>"><br>
+        <label for="publish_at">Date de publication:</label>
+        <input type="date" id="publish_at" name="publish_at" value="<?= get_input_data('publish_at');  ?>">
 
-        <label for="price">Prix:</label><br>
+        <label for="price">Prix:</label>
         <input type="number" id="price" name="price" step="0.01" value="<?= get_input_data('price');  ?>">
 
-        <label for="writer">Ecrivain:</label><br>
+        <label for="writer">Ecrivain:</label>
         <select id="writer" name="writer">
             <?php
             foreach ($writers as $writer) { ?>
                 <option value="<?= $writer->id ?>"><?= strtolower($writer->firstname . ' ' . $writer->lastname); ?></option>
             <?php  }
             ?>
-        </select><br>
-        <label for="path_image">Pochette:</label><br>
-        <input type="file" name="path_image" id="path_image"><br>
+        </select>
+        <label for="path_image">Pochette:</label>
+        <input type="file" name="path_image" id="path_image">
+
+        <label for="synopsys">Synopsys:</label>
+        <textarea name="synopsys" id="synopsys" cols="30" rows="12"></textarea>
+
         <input class="button" type="submit" name="valider" value="VALIDER" />
     </form>
 </section>

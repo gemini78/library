@@ -2,10 +2,12 @@
 //$cart = new Cart;
 if (isset($_GET['del'])) {
     $cart->del($_GET['del']);
+    redirect('?page=add-cart');
 } else {
     if (isset($_GET['dec'])) {
         $cart->decQuantity($_GET['dec']);
-    } else {
+        redirect('?page=add-cart');
+} else {
         if (isset($_GET['id'])) {
             $Onebook = getIdOneBook($_GET['id']);
 
@@ -13,9 +15,11 @@ if (isset($_GET['del'])) {
                 set_flash("Ce produit n'existe pas", 'danger');
 
                 //Redirection vers home
-                header('Location: ?page=home');
+                redirect('?page=home');
+
             } else {
                 $cart->add($Onebook->id);
+                redirect('?page=add-cart');
                 //die('Le produit a bien été ajouté <a href="javascript::history.back()">au catalogue</a>');
             }
         }
