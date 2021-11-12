@@ -23,6 +23,7 @@ if (!$book) {
             <h2><?= $book->title ?></h2>
             <p>ISBN <?= $book->isbn ?></p>
             <p>Publié le <?= date('d/m/Y', strtotime($book->publish_at)); ?></p>
+            <p>Prix <?=$book->price ?> €</p>
             <p>Par <span><?= $book->firstname.' '.$book->lastname  ?></span></p>
         </div>
     </div>
