@@ -426,10 +426,17 @@ input.button {
   .container-details-one {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
 
     img {
       margin-right: 1rem;
+    }
+
+    .area-two {
+
+      h2 {
+        margin-top: 0;
+      }
     }
   }
 }

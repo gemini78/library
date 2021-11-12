@@ -319,10 +319,13 @@ input.button:nth-child(1) {
 .section-details-book .container-details-one {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
 }
 .section-details-book .container-details-one img {
   margin-right: 1rem;
+}
+.section-details-book .container-details-one .area-two h2 {
+  margin-top: 0;
 }
 
 .styled-table {
