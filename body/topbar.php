@@ -9,10 +9,10 @@
     <div class="wrapper">
         <nav>
             <ul>
-                <li class="<?php echo ($page=="home")? "active" : "" ?>"><a href="?page=home">home</a></li>
+                <li class="<?php echo ($page=="home")? "active" : "" ?>"><a href="?page=home">Accueil</a></li>
                 <?php 
                     if ($auth) { ?>
-                        <li class="<?php echo ($page=="add-book")? "active" : "" ?>"><a href="?page=add-book">add-book</a></li>
+                        <li class="<?php echo ($page=="add-book")? "active" : "" ?>"><a href="?page=add-book">Ajouter un livre</a></li>
                 <?php   }
                 ?>
                 <li class="<?php echo ($page=="login")? "active" : "" ?>"><a href="?page=login">login</a></li>

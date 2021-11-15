@@ -1,10 +1,13 @@
 <?php 
 
+/**
+ * allows you to know if an element is already present in the table
+ */
 if (!function_exists('is_already_use')) 
 {
     function is_already_use($field, $value, $table) 
     {
-        //global $db;
+        
         $db = SinglePDO::getInstance();
 
         $stmt = $db->prepare("SELECT id FROM $table WHERE $field = :value");

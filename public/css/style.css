@@ -52,6 +52,10 @@ footer {
   margin: 0 auto;
 }
 
+.noBook {
+  text-align: center;
+}
+
 main .wrapper {
   padding: 0 1rem;
 }

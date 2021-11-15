@@ -4,6 +4,8 @@
         session_start();
     }
 
+    require_once dirname(__DIR__).'/config/_connect.php';
+
     // connexion BDD
     include '../functions/main-functions.php';
 

@@ -1,5 +1,8 @@
 <?php 
 
+/**
+ * Shopping cart management
+ */
 class Cart
 {
     public function __construct()

@@ -41,14 +41,14 @@ if (isset($_POST['valider'])) {
     </p>
 
     <form method="POST">
-        <label for="firstname">Prénom:</label><br>
-        <input type="text" id="firstname" name="firstname" value="<?= get_input_data('firstname');  ?>"><br>
+        <label for="firstname">Prénom:</label>
+        <input type="text" id="firstname" name="firstname" value="<?= get_input_data('firstname');  ?>" required>
 
-        <label for="lastname">Nom:</label><br>
-        <input type="text" id="lastname" name="lastname" value="<?= get_input_data('lastname');  ?>"><br>
+        <label for="lastname">Nom:</label>
+        <input type="text" id="lastname" name="lastname" value="<?= get_input_data('lastname');  ?>" required>
 
-        <label for="birthday">Date de naissance:</label><br>
-        <input type="date" id="birthday" name="birthday" value="<?= get_input_data('birthday');  ?>"><br>
+        <label for="birthday">Date de naissance:</label>
+        <input type="date" id="birthday" name="birthday" value="<?= get_input_data('birthday');  ?>" required>
 
         <input class="button" type="submit" name="valider" value="VALIDER" />
     </form>

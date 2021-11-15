@@ -84,16 +84,16 @@ if (isset($_POST['valider'])) {
     </p>
     <form method="POST" enctype="multipart/form-data">
         <label for="title">Titre:</label>
-        <input type="text" id="title" name="title" value="<?= get_input_data('title');  ?>">
+        <input type="text" id="title" name="title" value="<?= get_input_data('title');  ?>" required>
 
         <label for="isbn">Isbn:</label>
-        <input type="text" id="isbn" name="isbn" value="<?= get_input_data('isbn');  ?>">
+        <input type="text" id="isbn" name="isbn" value="<?= get_input_data('isbn');  ?>" required>
 
         <label for="publish_at">Date de publication:</label>
-        <input type="date" id="publish_at" name="publish_at" value="<?= get_input_data('publish_at');  ?>">
+        <input type="date" id="publish_at" name="publish_at" value="<?= get_input_data('publish_at');  ?>" required>
 
         <label for="price">Prix:</label>
-        <input type="number" id="price" name="price" step="0.01" value="<?= get_input_data('price');  ?>">
+        <input type="number" id="price" name="price" step="0.01" value="<?= get_input_data('price');  ?>" required>
 
         <label for="writer">Ecrivain:</label>
         <select id="writer" name="writer">
@@ -107,7 +107,7 @@ if (isset($_POST['valider'])) {
         <input type="file" name="path_image" id="path_image">
 
         <label for="synopsys">Synopsys:</label>
-        <textarea name="synopsys" id="synopsys" cols="30" rows="12"></textarea>
+        <textarea name="synopsys" id="synopsys" cols="30" rows="12" required></textarea>
 
         <input class="button" type="submit" name="valider" value="VALIDER" />
     </form>
